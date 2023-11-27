@@ -19,16 +19,18 @@ public class MainActivity extends AppCompatActivity {
     WordDao wordDao;
     Button insert, delete, deleteAll, update;
     RecyclerView recyclerView;
-    MyAdapter myAdapter;
+    MyAdapter myAdapter1;
+    MyAdapter myAdapter2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         MyViewModel myViewModel = new ViewModelProvider(this).get(MyViewModel.class);
         recyclerView=findViewById(R.id.RecyclerView);
-        myAdapter = new MyAdapter();
+        myAdapter1 = new MyAdapter(false,myViewModel);
+        myAdapter2 = new MyAdapter(true,myViewModel);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));//一维列表所以用这个
-        recyclerView.setAdapter(myAdapter);
+        recyclerView.setAdapter(myAdapter1);
         //创建一个数据库，第三个参数是存储的时候的数据库名称
         wordDatabase = WordDatabase.getDatabase(this);
 
@@ -38,8 +40,16 @@ public class MainActivity extends AppCompatActivity {
         myViewModel.getAllWordLive().observe(this, new Observer<List<Word>>() {
             @Override
             public void onChanged(List<Word> words) {
-                myAdapter.setAllWords(words);
-                myAdapter.notifyDataSetChanged();//数据发生改变，通知刷新视图,让onBindViewHolder 方法被调用
+                //获取myAdapter1中的数据长度
+                //todo 看看这个函数是什么意思
+                int temp = myAdapter1.getItemCount();
+                myAdapter1.setAllWords(words);
+                myAdapter2.setAllWords(words);
+                //如果长度不相同，那就不刷新列表，因为在Adapter中已经有过刷新了，改变这个设置，可以让动作变得更平滑
+                if(temp!=words.size()){
+                    myAdapter1.notifyDataSetChanged();//数据发生改变，通知刷新视图,让onBindViewHolder 方法被调用
+                    myAdapter2.notifyDataSetChanged();
+                }
             }
         });
 
