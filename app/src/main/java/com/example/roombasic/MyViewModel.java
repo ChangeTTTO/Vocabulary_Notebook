@@ -1,7 +1,6 @@
 package com.example.roombasic;
 
 import android.app.Application;
-import android.os.AsyncTask;
 
 import java.util.List;
 

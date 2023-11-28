@@ -33,10 +33,13 @@ android {
 
 dependencies {
     var room_version = "2.5.0"
-
+    implementation ("androidx.navigation:navigation-fragment-ktx:2.5.3")
+    implementation ("androidx.navigation:navigation-ui-ktx:2.5.3")
     implementation ("androidx.room:room-runtime:$room_version")
+    //noinspection GradleDependency
     annotationProcessor("androidx.room:room-compiler:$room_version")
     // optional - Test helpers
+    //noinspection GradleDependency
     testImplementation("androidx.room:room-testing:$room_version")
     implementation ("org.projectlombok:lombok:1.18.22")
     annotationProcessor ("org.projectlombok:lombok:1.18.22")
