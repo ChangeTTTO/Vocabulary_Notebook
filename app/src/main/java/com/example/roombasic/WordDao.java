@@ -27,4 +27,7 @@ public interface WordDao {
      * LiveData这个对象系统自动放到副线程去处理了，不用再建一个线程专门使用。
      */
     LiveData<List<Word>> getAllWordsLive();
+    //利用传递过来的参数pattern进行模糊匹配,传递进来的参数前后都需要添加%
+    @Query("SELECT * FROM WORD WHERE english_word LIKE:pattern ORDER BY ID DESC")
+    LiveData<List<Word>> findWordsWithPattern(String pattern);
 }

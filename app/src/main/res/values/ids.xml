@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <!--资源项用于为应用程序提供静态数据，如颜色、字符串、尺寸、ID等-->
+    <item name="word_for_view_holder" type="id"></item>
+</resources>

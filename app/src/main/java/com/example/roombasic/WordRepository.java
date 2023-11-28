@@ -15,7 +15,7 @@ public class WordRepository {
         wordDao=wordDatabase.getWordDao();
         allWordsLive=wordDao.getAllWordsLive();
     }
-
+    public LiveData<List<Word>>findWordsWithPattern(String pattern){return wordDao.findWordsWithPattern("%"+pattern+"%");}
     public LiveData<List<Word>> getAllWordsLive() {
         return allWordsLive;
     }

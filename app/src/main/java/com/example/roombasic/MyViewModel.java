@@ -20,6 +20,9 @@ public class MyViewModel extends AndroidViewModel {
     public LiveData<List<Word>> getAllWordLive() {
         return wordRepository.getAllWordsLive();
     }
+    LiveData<List<Word>> findWordsWIthPattern(String pattern){
+        return wordRepository.findWordsWithPattern(pattern);
+    }
 
     void insertWords(Word... words) {
         wordRepository.insertWords(words);
