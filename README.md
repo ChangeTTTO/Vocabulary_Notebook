@@ -5,4 +5,3 @@
 <img src="https://github.com/ChangeTTTO/Vocabulary_Notebook/assets/93442048/a5d66295-31c5-47c4-989e-92da68d9070e" alt="3809d27fa175f69882c55314de09cf8" style="zoom:20%;" />
 
 <img src="https://github.com/ChangeTTTO/Vocabulary_Notebook/assets/93442048/7c933b94-08fe-4070-af15-fa4c46c976db" alt="613fccd897669b023151944c7622205" style="zoom:20%;" />
-
